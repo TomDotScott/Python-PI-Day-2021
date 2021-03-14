@@ -10,7 +10,8 @@ def construct_array(fileName):
     for i in range(0, len(millionDigits), 5):
         num = ""
         for j in range(5):
-            num += millionDigits[i + j]
+            if i + j < len(millionDigits):
+                num += millionDigits[i + j]
         numbers.append(int(num))
     file.close()
     return numbers
@@ -31,11 +32,11 @@ def greatest_common_denominator(a, b):
         return greatest_common_denominator(b, remainder)
 
 
-numbersArray = construct_array('randomDigits.txt')
+numbersArray = construct_array('millionDigitsPI.txt')
 # Count through the array in pairs
 totalNumbers = 0
 coPrimeCount = 0
-for i in range(0, len(numbersArray), 2):
+for i in range(0, len(numbersArray) - 2, 2):
     a = numbersArray[i]
     b = numbersArray[i + 1]
     gcd = greatest_common_denominator(a, b)
