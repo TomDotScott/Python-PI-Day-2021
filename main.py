@@ -1,4 +1,4 @@
-def constructArray(fileName):
+def construct_array(fileName):
     # Read the file
     file = open(fileName, 'r')
     millionDigits = file.readline()
@@ -13,4 +13,14 @@ def constructArray(fileName):
     return numbers
 
 
-print(constructArray('randomDigits.txt'))
+def greatest_common_denominator(a, b):
+    if b > a:
+        b, a = a, b
+    remainder = a % b
+    if remainder == 0:
+        return b
+    else:
+        return greatest_common_denominator(b, remainder)
+
+
+print(greatest_common_denominator(252, 105))
