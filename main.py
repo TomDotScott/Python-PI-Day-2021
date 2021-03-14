@@ -1,8 +1,12 @@
-# remove whitespace from the file
+# Read the file
 file = open("randomDigits.txt", 'r')
-lines = file.readlines()
-lines = [line.replace(' ', '') for line in lines]
-lines = [line.replace('\n', '') for line in lines]
-file.close()
-file = open("randomDigits.txt", 'w')
-file.writelines(lines)
+millionDigits = file.readline()
+# split into array of 5 digit numbers
+numbers = []
+for i in range(0, len(millionDigits), 5):
+    num = ""
+    for j in range(5):
+        num += millionDigits[i + j]
+    numbers.append(int(num))
+
+print(numbers)
